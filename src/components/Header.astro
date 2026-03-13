@@ -4,19 +4,13 @@ import IconSearch from "@tabler/icons/outline/search.svg";
 import IconMenuDeep from "@tabler/icons/outline/menu-deep.svg";
 import LinkButton from "./LinkButton.astro";
 import { CONFIG } from "../config";
+import { getNormalizedPathname, isActivePathname } from "../lib/url";
 
-const { pathname } = Astro.url;
+const currentPath = getNormalizedPathname(Astro.url);
 
-// Remove trailing slash from current pathname if exists
-const currentPath =
-  pathname.endsWith("/") && pathname !== "/" ? pathname.slice(0, -1) : pathname;
-
-const isActive = (path: string) => {
-  const currentPathArray = currentPath.split("/").filter((p) => p.trim());
-  const pathArray = path.split("/").filter((p) => p.trim());
-
-  return currentPath === path || currentPathArray[0] === pathArray[0];
-};
+function isActive(pathname: string) {
+  return isActivePathname(currentPath, pathname);
+}
 ---
 
 <a
