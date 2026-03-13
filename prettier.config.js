@@ -1,5 +1,8 @@
 /**
  * @see https://prettier.io/docs/configuration
- * @type {import("prettier").Config}
+ * @type {import("prettier").Config & import("prettier-plugin-tailwindcss").PluginOptions}
  */
-export default {};
+export default {
+  plugins: ["prettier-plugin-tailwindcss"],
+  tailwindStylesheet: "./src/styles/global.css",
+};

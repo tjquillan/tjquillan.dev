@@ -17,7 +17,9 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.1",
-    "astro": "^6.0.3"
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^6.0.3",
+    "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -25,6 +27,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.6.0",
     "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript-eslint": "^8.57.0",
     "vitest": "^4.1.0-beta.6"
   }
