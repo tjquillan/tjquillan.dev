@@ -2,6 +2,7 @@
 import { Font } from "astro:assets";
 import "../styles/global.css";
 import { CONFIG } from "../config";
+import Header from "../components/Header.astro";
 
 type Props = {
   title: string;
@@ -37,6 +38,7 @@ const {
     <meta name="author" content={author} />
   </head>
   <body>
+    <Header />
     <main class="app-layout py-12">
       <slot />
     </main>
