@@ -1,14 +1,19 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
+import { CONFIG } from "../config";
 
 type Props = {
   title: string;
   description?: string;
-  author?: string
+  author?: string;
 };
 
-const { title, description, author } = Astro.props;
+const {
+  title,
+  description = CONFIG.description,
+  author = CONFIG.author,
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -28,9 +33,8 @@ const { title, description, author } = Astro.props;
 
     <title>{title}</title>
     <meta name="title" content={title} />
-    {description ? <meta name="description" content={description} /> : null}
-    {author ? <meta name="author" content={author} /> : null}
-  
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
   </head>
   <body>
     <main class="app-layout py-12">

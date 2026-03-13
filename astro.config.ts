@@ -3,10 +3,11 @@ import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 import tailwindcss from "@tailwindcss/vite";
+import { CONFIG } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://tjquillan.dev",
+  site: CONFIG.website,
   integrations: [sitemap()],
   fonts: [
     {
