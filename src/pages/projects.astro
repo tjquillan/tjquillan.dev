@@ -1,0 +1,100 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LinkButton from "../components/LinkButton.astro";
+import IconGitHub from "@tabler/icons/outline/brand-github.svg";
+import IconWorld from "@tabler/icons/outline/world.svg";
+import IconPackage from "@tabler/icons/outline/package.svg";
+import IconPlug from "@tabler/icons/outline/plug.svg";
+
+const projects = [
+  {
+    title: "Advent of Code",
+    description: "Solutions for Advent of Code over the years.",
+    links: [
+      {
+        icon: IconGitHub,
+        label: "GitHub",
+        url: "https://github.com/tjquillan/adventofcode",
+      },
+    ],
+  },
+  {
+    title: "Discrete Calculator",
+    description:
+      "A site for calculating various things related to Discrete Mathematics.",
+    links: [
+      {
+        icon: IconGitHub,
+        label: "GitHub",
+        url: "https://github.com/tjquillan/discrete-calculator",
+      },
+      {
+        icon: IconWorld,
+        label: "Live Site",
+        url: "https://discrete-calculator.tjquillan.dev/",
+      },
+    ],
+  },
+  {
+    title: "Poetry Plugin Pyenv",
+    description:
+      "A poetry plugin that aims to make working with Poetry and Pyenv a seamless experience.",
+    links: [
+      {
+        icon: IconGitHub,
+        label: "GitHub",
+        url: "https://github.com/tjquillan/poetry-plugin-pyenv",
+      },
+      {
+        icon: IconPackage,
+        label: "PyPI",
+        url: "https://pypi.org/project/poetry-plugin-pyenv/",
+      },
+    ],
+  },
+  {
+    title: "Ulauncher System",
+    description: "Ulauncher extension to perform various system actions.",
+    links: [
+      {
+        icon: IconGitHub,
+        label: "GitHub",
+        url: "https://github.com/tjquillan/ulauncher-system",
+      },
+      {
+        icon: IconPlug,
+        label: "Extension",
+        url: "https://ext.ulauncher.io/-/github-iboyperson-ulauncher-system",
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Projects" description="Various open source projects and tools.">
+    <ul class="mt-8 space-y-8">
+      {
+        projects.map(project => (
+          <li class="my-6">
+            <h2 class="inline-block text-lg font-medium text-accent">
+              {project.title}
+            </h2>
+            <p class="mt-1">{project.description}</p>
+            <div class="mt-3 flex flex-wrap gap-4">
+              {project.links.map(link => {
+                return (
+                  <LinkButton
+                    href={link.url}
+                    class="flex items-center gap-1 decoration-dashed underline-offset-4 hover:text-accent hover:underline"
+                  >
+                    <link.icon />
+                    <span>{link.label}</span>
+                  </LinkButton>
+                );
+              })}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+</Layout>
