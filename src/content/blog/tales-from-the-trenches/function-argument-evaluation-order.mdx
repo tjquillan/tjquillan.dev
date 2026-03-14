@@ -1,0 +1,21 @@
+---
+pubDatetime: 2026-03-11T00:00:00Z
+title: The Unspecified Behavior of Function Argument Evaluation Order
+tags:
+  - Tales from the Trenches
+  - C
+description: A look at the unspecified behavior of function argument evaluation order in C.
+---
+
+```c
+#include <stdio.h>
+
+int foo() {
+    static int bar = 0;
+    return bar++;
+}
+
+int main(void) {
+    printf("%d %d %d\n", foo(), foo(), foo());
+}
+```
