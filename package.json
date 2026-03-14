@@ -16,6 +16,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@astrojs/mdx": "^5.0.0",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
     "@tabler/icons": "^3.40.0",

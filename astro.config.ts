@@ -5,10 +5,12 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { CONFIG } from "./src/config";
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
   site: CONFIG.website,
-  integrations: [sitemap()],
+  integrations: [sitemap(), mdx()],
   fonts: [
     {
       name: "Google Sans Code",
