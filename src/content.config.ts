@@ -7,7 +7,7 @@ export const BLOG_PATH = "src/content/blog";
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/[^_]*.mdx", base: `./${BLOG_PATH}` }),
-  schema: ({ image }) =>
+  schema: () =>
     z.object({
       author: z.string().default(CONFIG.author),
       pubDatetime: z.date(),
