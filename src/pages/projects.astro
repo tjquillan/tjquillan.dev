@@ -72,29 +72,29 @@ const projects = [
 ---
 
 <Layout title="Projects" description="Various open source projects and tools.">
-    <ul class="mt-8 space-y-8">
-      {
-        projects.map(project => (
-          <li class="my-6">
-            <h2 class="inline-block text-lg font-medium text-accent">
-              {project.title}
-            </h2>
-            <p class="mt-1">{project.description}</p>
-            <div class="mt-3 flex flex-wrap gap-4">
-              {project.links.map(link => {
-                return (
-                  <LinkButton
-                    href={link.url}
-                    class="flex items-center gap-1 decoration-dashed underline-offset-4 hover:text-accent hover:underline"
-                  >
-                    <link.icon />
-                    <span>{link.label}</span>
-                  </LinkButton>
-                );
-              })}
-            </div>
-          </li>
-        ))
-      }
-    </ul>
+  <ul class="mt-8 space-y-8">
+    {
+      projects.map((project) => (
+        <li class="my-6">
+          <h2 class="inline-block text-lg font-medium text-accent">
+            {project.title}
+          </h2>
+          <p class="mt-1">{project.description}</p>
+          <div class="mt-3 flex flex-wrap gap-4">
+            {project.links.map((link) => {
+              return (
+                <LinkButton
+                  href={link.url}
+                  class="flex items-center gap-1 decoration-dashed underline-offset-4 hover:text-accent hover:underline"
+                >
+                  <link.icon />
+                  <span>{link.label}</span>
+                </LinkButton>
+              );
+            })}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>
