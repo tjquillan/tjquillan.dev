@@ -3,7 +3,6 @@ import { type CollectionEntry, getCollection, render } from "astro:content";
 import { isPublishedPost } from "../../lib/blog";
 import type { GetStaticPaths } from "astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Breadcrumb from "../../components/Breadcrumb.astro";
 import { getNormalizedPathname } from "../../lib/url";
 
 type Props = {
