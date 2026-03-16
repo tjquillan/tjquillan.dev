@@ -3,19 +3,17 @@ import { z } from "astro/zod";
 import { glob } from "astro/loaders";
 import { CONFIG } from "./config";
 
-export const BLOG_PATH = "src/content/blog";
-
 const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.mdx", base: `./${BLOG_PATH}` }),
+  loader: glob({ pattern: "**/*.mdx", base: `./src/content/blog` }),
   schema: () =>
     z.object({
-      author: z.string().default(CONFIG.author),
-      pubDatetime: z.date(),
-      modDatetime: z.date().optional().nullable(),
       title: z.string(),
+      description: z.string(),
+      author: z.string().default(CONFIG.author),
+      pubDate: z.date(),
+      updatedDate: z.date().optional().nullable(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).default([]),
-      description: z.string(),
     }),
 });
 
