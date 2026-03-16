@@ -1,0 +1,50 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import { isPublishedPost } from "../../lib/blog";
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import { getNormalizedPathname } from "../../lib/url";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getCollection("blog", ({ data }) =>
+    isPublishedPost(data),
+  );
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+};
+
+const { post } = Astro.props;
+
+const {
+  title,
+  description,
+  author,
+} = post.data;
+
+const { Content } = await render(post);
+
+---
+
+<BaseLayout title={title} description={description} author={author}>
+  <main class="app-layout pb-12 mt-8">
+    <h1
+      transition:name={getNormalizedPathname(Astro.url)}
+      class="inline-block text-2xl font-bold text-accent sm:text-3xl"
+    >
+      {title}
+    </h1>
+    <article
+      id="article"
+      class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
+    >
+      <Content />
+    </article>
+  </main>
+</BaseLayout>

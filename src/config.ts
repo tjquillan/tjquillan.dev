@@ -16,6 +16,7 @@ export const CONFIG = {
   author: "Thomas Quillan",
   description: "A personal website for Thomas Quillan",
   title: "Thomas Quillan",
+  postPerPage: 10,
 };
 
 export const SOCIALS: Social[] = [

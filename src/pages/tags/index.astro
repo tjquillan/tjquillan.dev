@@ -1,0 +1,15 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import Tag from "../../components/Tag.astro";
+import { getUniqueTags, isPublishedPost } from "../../lib/blog";
+
+const posts = await getCollection("blog", ({ data }) => isPublishedPost(data));
+const tags = getUniqueTags(posts);
+---
+
+<Layout title="Tags">
+  <ul class="flex flex-wrap gap-6">
+    {tags.map((tag) => <Tag tag={tag} />)}
+  </ul>
+</Layout>

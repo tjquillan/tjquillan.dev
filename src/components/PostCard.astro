@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPostUrl } from "../lib/blog";
+
+type Props = {
+  post: CollectionEntry<"blog">;
+};
+
+const { post } = Astro.props;
+
+const { title, description } = post.data;
+const postUrl = getPostUrl(post);
+---
+
+<li class="my-6">
+  <a
+    href={postUrl}
+    class="inline-block text-lg font-medium text-accent decoration-dashed underline-offset-4 hover:underline focus-visible:no-underline focus-visible:underline-offset-0"
+  >
+    <h2 transition:name={postUrl}>
+      {title}
+    </h2>
+  </a>
+  <p>{description}</p>
+</li>
