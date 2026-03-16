@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun install:*)",
+      "Bash(bun add:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun run dev:*)",
+      "Bash(bun run build:*)",
+      "Bash(bun run preview:*)",
+      "Bash(bun run astro:*)",
+      "Bash(bun run format:check:*)",
+      "Bash(bun run format:*)",
+      "Bash(bun run lint:*)",
+      "Bash(bun run test:*)"
+    ]
+  }
+}
