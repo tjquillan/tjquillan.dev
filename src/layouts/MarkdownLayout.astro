@@ -1,0 +1,14 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import Layout from "./Layout.astro";
+
+type Props = MarkdownLayoutProps<{ title: string }>;
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title}`}>
+  <section class="app-prose mb-28 max-w-app prose-img:border-0">
+    <slot />
+  </section>
+</Layout>
