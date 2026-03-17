@@ -16,17 +16,17 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/mdx": "^5.0.0",
+    "@astrojs/mdx": "5.0.1",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
     "@tabler/icons": "^3.40.0",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "6.0.4",
+    "astro": "6.0.5",
     "es-toolkit": "^1.45.1",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.7",
+    "@astrojs/check": "0.9.8",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/typography": "^0.5.19",
     "eslint": "^10.0.3",
