@@ -22,6 +22,7 @@
     "@tabler/icons": "^3.40.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "6.0.5",
+    "astro-pagefind": "^1.8.5",
     "es-toolkit": "^1.45.1",
     "tailwindcss": "^4.2.1"
   },

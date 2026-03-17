@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
+import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
 import { CONFIG } from "./src/config";
@@ -8,7 +9,7 @@ import { CONFIG } from "./src/config";
 // https://astro.build/config
 export default defineConfig({
   site: CONFIG.website,
-  integrations: [sitemap(), mdx()],
+  integrations: [sitemap(), mdx(), pagefind()],
   fonts: [
     {
       name: "Google Sans Code",

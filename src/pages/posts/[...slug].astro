@@ -30,7 +30,7 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={title} description={description} author={author}>
-  <main class="app-layout mt-8 pb-12">
+  <main class="app-layout mt-8 pb-12" data-pagefind-body>
     <h1
       transition:name={getNormalizedPathname(Astro.url)}
       class="inline-block text-2xl font-bold text-accent sm:text-3xl"
