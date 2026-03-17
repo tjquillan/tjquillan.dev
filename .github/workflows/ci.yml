@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: actions/cache@v5
+        with:
+          path: |
+            ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+
+      - name: Install dependencies
+        run: bun ci
+
+      - name: Format
+        run: bun run format:check
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Build
+        run: bun run build
