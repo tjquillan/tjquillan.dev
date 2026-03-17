@@ -7,5 +7,7 @@ pre-commit:
     lint:
       run: bun run lint --fix
       stage_fixed: true
+    check:
+      run: bun run astro check
     test:
       run: bun run test run
