@@ -2,11 +2,11 @@
 @import "./typography.css";
 
 :root {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60;
-  --border: #ab4b08;
+  --background: #18181b;
+  --foreground: #f4f4f5;
+  --accent: #22c55e;
+  --muted: #27272a;
+  --border: #15803d;
 }
 
 @theme inline {
