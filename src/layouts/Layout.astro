@@ -9,11 +9,7 @@ type Props = {
   author?: string;
 };
 
-const {
-  title,
-  description,
-  author = CONFIG.author,
-} = Astro.props;
+const { title, description, author = CONFIG.author } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description} author={author}>
