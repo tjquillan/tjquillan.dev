@@ -1,8 +1,9 @@
 import { defineCollection } from "astro:content";
-import { z } from "astro/zod";
 import { glob } from "astro/loaders";
-import { CONFIG } from "./config";
+import { z } from "astro/zod";
 import { kebabCase } from "es-toolkit";
+
+import { CONFIG } from "./config";
 
 const blog = defineCollection({
   loader: glob({

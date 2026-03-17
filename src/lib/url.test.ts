@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { getNormalizedPathname, isActivePathname } from "./url";
 
 function toURL(path: string) {

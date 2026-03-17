@@ -1,8 +1,7 @@
 ---
-import "../styles/global.css";
 import { CONFIG } from "../config";
-import BaseLayout from "./BaseLayout.astro";
 import { getNormalizedPathname } from "../lib/url";
+import BaseLayout from "./BaseLayout.astro";
 
 type Props = {
   title: string;
@@ -18,7 +17,7 @@ const {
 ---
 
 <BaseLayout title={title} description={description} author={author}>
-  <main class="app-layout pb-4 mt-8">
+  <main class="app-layout mt-8 pb-4">
     <h1
       transition:name={getNormalizedPathname(Astro.url)}
       class="text-2xl font-semibold sm:text-3xl"

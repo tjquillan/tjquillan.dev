@@ -1,6 +1,8 @@
-import rss from "@astrojs/rss";
-import { CONFIG } from "../config";
 import type { APIRoute } from "astro";
+
+import rss from "@astrojs/rss";
+
+import { CONFIG } from "../config";
 
 export const GET: APIRoute = ({ site }) => {
   if (!site) {

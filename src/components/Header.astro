@@ -1,10 +1,11 @@
 ---
-import IconX from "@tabler/icons/outline/x.svg";
-import IconSearch from "@tabler/icons/outline/search.svg";
 import IconMenuDeep from "@tabler/icons/outline/menu-deep.svg";
-import LinkButton from "./LinkButton.astro";
+import IconSearch from "@tabler/icons/outline/search.svg";
+import IconX from "@tabler/icons/outline/x.svg";
+
 import { CONFIG } from "../config";
 import { getNormalizedPathname, isActivePathname } from "../lib/url";
+import LinkButton from "./LinkButton.astro";
 
 const currentPath = getNormalizedPathname(Astro.url);
 

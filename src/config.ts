@@ -1,8 +1,9 @@
 import type { Props } from "astro";
-import IconMail from "@tabler/icons/outline/mail.svg";
+
 import IconGitHub from "@tabler/icons/outline/brand-github.svg";
 import IconGitLab from "@tabler/icons/outline/brand-gitlab.svg";
 import IconLinkedin from "@tabler/icons/outline/brand-linkedin.svg";
+import IconMail from "@tabler/icons/outline/mail.svg";
 
 interface Social {
   name: string;

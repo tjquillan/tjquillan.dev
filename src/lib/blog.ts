@@ -1,4 +1,5 @@
 import type { CollectionEntry } from "astro:content";
+
 import { kebabCase } from "es-toolkit";
 
 export function getPostUrl(post: CollectionEntry<"blog">): string {

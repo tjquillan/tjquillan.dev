@@ -1,8 +1,11 @@
 ---
-import { type CollectionEntry, getCollection, render } from "astro:content";
-import { isPublishedPost } from "../../lib/blog";
 import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+
+import { getCollection, render } from "astro:content";
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { isPublishedPost } from "../../lib/blog";
 import { getNormalizedPathname } from "../../lib/url";
 
 type Props = {
@@ -21,18 +24,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const { post } = Astro.props;
 
-const {
-  title,
-  description,
-  author,
-} = post.data;
+const { title, description, author } = post.data;
 
 const { Content } = await render(post);
-
 ---
 
 <BaseLayout title={title} description={description} author={author}>
-  <main class="app-layout pb-12 mt-8">
+  <main class="app-layout mt-8 pb-12">
     <h1
       transition:name={getNormalizedPathname(Astro.url)}
       class="inline-block text-2xl font-bold text-accent sm:text-3xl"
