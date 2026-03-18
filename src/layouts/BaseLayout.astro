@@ -12,13 +12,18 @@ type Props = {
   title: string;
   description?: string;
   author?: string;
+  ogImage?: string;
 };
 
 const {
   title,
   description = CONFIG.description,
   author = CONFIG.author,
+  ogImage = "/og/default.png",
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, CONFIG.website);
+const ogImageURL = new URL(ogImage, CONFIG.website).href;
 ---
 
 <html lang="en">
@@ -40,6 +45,26 @@ const {
     <meta name="title" content={title} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={`${title} | ${CONFIG.title}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content={CONFIG.title} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={`${title} | ${CONFIG.title}`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <ClientRouter />
   </head>

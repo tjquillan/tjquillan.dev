@@ -19,11 +19,14 @@
     "@astrojs/mdx": "5.0.1",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
+    "@resvg/resvg-js": "^2.6.2",
     "@tabler/icons": "^3.40.0",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "6.0.5",
     "astro-pagefind": "^1.8.5",
     "es-toolkit": "^1.45.1",
+    "react": "^19.2.4",
+    "satori": "^0.25.0",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
@@ -31,6 +34,7 @@
     "@eslint/js": "^10.0.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/react": "^19.2.14",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.6.0",
