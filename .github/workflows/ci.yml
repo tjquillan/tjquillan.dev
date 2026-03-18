@@ -7,8 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  ci:
-    name: Check
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -26,6 +25,16 @@ jobs:
           path: |
             ~/.bun/install/cache
           key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - uses: actions/cache@v5
+        with:
+          path: |
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-astro-
 
       - name: Install dependencies
         run: bun ci
