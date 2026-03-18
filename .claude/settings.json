@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "WebSearch",
       "Bash(bun install:*)",
       "Bash(bun add:*)",
       "Bash(bun remove:*)",
