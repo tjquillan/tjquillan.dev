@@ -3,13 +3,20 @@ import type { HTMLAttributes } from "astro/types";
 
 type Props = { disabled?: boolean } & HTMLAttributes<"a">;
 
-const { disabled, class: className, ...attrs } = Astro.props;
+const { disabled, class: className, href, ...attrs } = Astro.props;
+
+const isExternal = typeof href === "string" && /^https?:\/\//.test(href);
+const target = isExternal ? "_blank" : undefined;
+const rel = isExternal ? "noopener noreferrer" : undefined;
 
 const Button = disabled ? "span" : "a";
 ---
 
 <Button
   aria-disabled={disabled}
+  href={href}
+  target={target}
+  rel={rel}
   class:list={[
     "group inline-flex items-center gap-1",
     { "hover:text-accent": !disabled },
