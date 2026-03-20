@@ -1,8 +1,10 @@
+/** @jsxRuntime automatic */
+/** @jsxImportSource satori/jsx */
+
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { Resvg } from "@resvg/resvg-js";
 import { fontData as astroFontData } from "astro:assets";
-import React from "react";
 import satori from "satori";
 
 import { CONFIG } from "../config";
