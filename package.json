@@ -23,7 +23,7 @@
     "@tabler/icons": "^3.40.0",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "6.0.8",
-    "astro-pagefind": "^1.8.5",
+    "astro-pagefind": "^1.8.6",
     "es-toolkit": "^1.45.1",
     "satori": "^0.26.0",
     "tailwindcss": "^4.2.2"
@@ -41,7 +41,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.57.1",
-    "vitest": "^4.1.0"
+    "typescript-eslint": "^8.57.2",
+    "vitest": "^4.1.1"
   }
 }
