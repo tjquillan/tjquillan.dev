@@ -3,11 +3,11 @@
 
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { Resvg } from "@resvg/resvg-js";
 import { fontData as astroFontData } from "astro:assets";
 import satori from "satori";
 
 import { CONFIG } from "../config";
+import { svgToPng } from "./svg";
 
 type OgImageType = "page" | "post";
 
@@ -15,6 +15,8 @@ interface OgImageProps {
   title: string;
   description?: string;
 }
+
+const OG_IMAGE_SIZE = 1200;
 
 const websiteHost = new URL(CONFIG.website).host;
 
@@ -239,11 +241,6 @@ async function loadFontData(): Promise<ArrayBuffer> {
   return (await readFile(fontPath)).buffer as ArrayBuffer;
 }
 
-function svgToPng(svg: string): Uint8Array {
-  const resvg = new Resvg(svg, { fitTo: { mode: "width", value: 1200 } });
-  return resvg.render().asPng();
-}
-
 export async function generateOgImage(
   title: string,
   description?: string,
@@ -271,5 +268,5 @@ export async function generateOgImage(
     ],
   });
 
-  return svgToPng(svg);
+  return svgToPng(svg, OG_IMAGE_SIZE);
 }
