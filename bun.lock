@@ -8,14 +8,14 @@
         "@astrojs/mdx": "5.0.3",
         "@astrojs/rss": "4.0.18",
         "@astrojs/sitemap": "3.7.2",
-        "@resvg/resvg-js": "^2.6.2",
-        "@tabler/icons": "^3.40.0",
-        "@tailwindcss/vite": "^4.2.2",
+        "@resvg/resvg-js": "2.6.2",
+        "@tabler/icons": "3.41.1",
+        "@tailwindcss/vite": "4.2.2",
         "astro": "6.1.5",
-        "astro-pagefind": "^1.8.6",
-        "es-toolkit": "^1.45.1",
-        "satori": "^0.26.0",
-        "tailwindcss": "^4.2.2",
+        "astro-pagefind": "1.8.6",
+        "es-toolkit": "1.45.1",
+        "satori": "0.26.0",
+        "tailwindcss": "4.2.2",
       },
       "devDependencies": {
         "@astrojs/check": "0.9.8",
@@ -362,7 +362,7 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@tabler/icons": ["@tabler/icons@3.40.0", "", {}, "sha512-V/Q4VgNPKubRTiLdmWjV/zscYcj5IIk+euicUtaVVqF6luSC9rDngYWgST5/yh3Mrg/mYUwRv1YVTk71Jp0twQ=="],
+    "@tabler/icons": ["@tabler/icons@3.41.1", "", {}, "sha512-OaRnVbRmH2nHtFeg+RmMJ/7m2oBIF9XCJAUD5gQnMrpK9f05ydj8MZrAf3NZQqOXyxGN1UBL0D5IKLLEUfr74Q=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.2.2", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.19.0", "jiti": "^2.6.1", "lightningcss": "1.32.0", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.2.2" } }, "sha512-pXS+wJ2gZpVXqFaUEjojq7jzMpTGf8rU6ipJz5ovJV6PUGmlJ+jvIwGrzdHdQ80Sg+wmQxUFuoW1UAAwHNEdFA=="],
 
