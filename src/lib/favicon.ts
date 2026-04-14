@@ -5,6 +5,10 @@ import { svgToPng } from "./svg";
 const FAVICON_ICO_SIZES = [32];
 const APPLE_TOUCH_ICON_SIZE = 180;
 
+export const FAVICON_ICO_SIZES_STR = FAVICON_ICO_SIZES.map(
+  (val) => `${val}x${val}`,
+).join(" ");
+
 function createIco(images: Array<{ size: number; data: Buffer }>) {
   const header = Buffer.alloc(6);
   header.writeUInt16LE(0, 0);
