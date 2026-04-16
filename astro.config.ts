@@ -1,5 +1,10 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import {
+  transformerNotationDiff,
+  transformerNotationHighlight,
+  transformerNotationWordHighlight,
+} from "@shikijs/transformers";
 import tailwindcss from "@tailwindcss/vite";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
@@ -10,6 +15,15 @@ import { CONFIG } from "./src/config";
 export default defineConfig({
   site: CONFIG.website,
   integrations: [sitemap(), mdx(), pagefind()],
+  markdown: {
+    shikiConfig: {
+      transformers: [
+        transformerNotationDiff({ matchAlgorithm: "v3" }),
+        transformerNotationHighlight(),
+        transformerNotationWordHighlight(),
+      ],
+    },
+  },
   fonts: [
     {
       name: "Google Sans Code",
