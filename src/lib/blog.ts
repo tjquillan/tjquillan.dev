@@ -14,7 +14,10 @@ export function isPublishedPost(
 }
 
 export async function getPublishedPosts(): Promise<CollectionEntry<"blog">[]> {
-  return getCollection("blog", ({ data }) => isPublishedPost(data));
+  return getCollection(
+    "blog",
+    ({ data }) => import.meta.env.DEV || isPublishedPost(data),
+  );
 }
 
 export function getSortedPosts(
