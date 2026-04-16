@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 
+import { getCollection } from "astro:content";
 import { kebabCase } from "es-toolkit";
 
 export function getPostUrl(post: CollectionEntry<"blog">): string {
@@ -10,6 +11,10 @@ export function isPublishedPost(
   postData: CollectionEntry<"blog">["data"],
 ): boolean {
   return !postData.draft;
+}
+
+export async function getPublishedPosts(): Promise<CollectionEntry<"blog">[]> {
+  return getCollection("blog", ({ data }) => isPublishedPost(data));
 }
 
 export function getSortedPosts(

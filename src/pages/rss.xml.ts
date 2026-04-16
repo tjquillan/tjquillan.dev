@@ -1,17 +1,16 @@
 import type { APIRoute } from "astro";
 
 import rss from "@astrojs/rss";
-import { getCollection } from "astro:content";
 
 import { CONFIG } from "../config";
-import { getPostUrl, getSortedPosts } from "../lib/blog";
+import { getPostUrl, getPublishedPosts, getSortedPosts } from "../lib/blog";
 
 export const GET: APIRoute = async ({ site }) => {
   if (!site) {
     throw new Error("Site URL is not defined. Please set it in the config.");
   }
 
-  const posts = await getCollection("blog");
+  const posts = await getPublishedPosts();
   const sortedPosts = getSortedPosts(posts);
 
   return rss({

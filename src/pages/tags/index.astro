@@ -1,11 +1,9 @@
 ---
-import { getCollection } from "astro:content";
-
 import Tag from "../../components/Tag.astro";
 import Layout from "../../layouts/Layout.astro";
-import { getUniqueTags, isPublishedPost } from "../../lib/blog";
+import { getPublishedPosts, getUniqueTags } from "../../lib/blog";
 
-const posts = await getCollection("blog", ({ data }) => isPublishedPost(data));
+const posts = await getPublishedPosts();
 const tags = getUniqueTags(posts);
 ---
 

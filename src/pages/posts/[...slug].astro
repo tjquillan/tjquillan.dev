@@ -2,10 +2,10 @@
 import type { GetStaticPaths } from "astro";
 import type { CollectionEntry } from "astro:content";
 
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { isPublishedPost } from "../../lib/blog";
+import { getPublishedPosts } from "../../lib/blog";
 import { getNormalizedPathname } from "../../lib/url";
 
 type Props = {
@@ -13,9 +13,7 @@ type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getCollection("blog", ({ data }) =>
-    isPublishedPost(data),
-  );
+  const posts = await getPublishedPosts();
   return posts.map((post) => ({
     params: { slug: post.id },
     props: { post },
