@@ -1,0 +1,92 @@
+---
+title: Code Block Test
+description: ""
+pubDate: 2026-03-11T00:00:00Z
+draft: true
+tags:
+  - mdx
+---
+
+```js {1, 4, 7-8}
+// Line 1 - targeted by line number
+// Line 2
+// Line 3
+// Line 4 - targeted by line number
+// Line 5
+// Line 6
+// Line 7 - targeted by range "7-8"
+// Line 8 - targeted by range "7-8"
+```
+
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+  console.log("this line is marked as deleted");
+  // This line and the next one are marked as inserted
+  console.log("this is the second inserted line");
+
+  return "this line uses the neutral default marker type";
+}
+```
+
+```jsx {"1":5} del={"2":7-8} ins={"3":10-12}
+// labeled-line-markers.jsx
+<button
+  role="button"
+  {...props}
+  value={value}
+  className={buttonClassName}
+  disabled={disabled}
+  active={active}
+>
+  {children &&
+    !active &&
+    (typeof children === "string" ? <span>{children}</span> : children)}
+</button>
+```
+
+```jsx {"1. Provide the value prop here:":5-6} del={"2. Remove the disabled and active states:":8-10} ins={"3. Add this to render the children inside the button:":12-15}
+// labeled-line-markers.jsx
+<button
+  role="button"
+  {...props}
+  value={value}
+  className={buttonClassName}
+  disabled={disabled}
+  active={active}
+>
+  {children &&
+    !active &&
+    (typeof children === "string" ? <span>{children}</span> : children)}
+</button>
+```
+
+```diff
++this line will be marked as inserted
+-this line will be marked as deleted
+this is a regular line
+```
+
+```diff lang="js"
+  function thisIsJavaScript() {
+    // This entire block gets highlighted as JavaScript,
+    // and we can still add diff markers to it!
+-   console.log('Old code to be removed')
++   console.log('New and shiny code!')
+  }
+```
+
+```js "return true;" ins="inserted" del="deleted"
+function demo() {
+  console.log("These are inserted and deleted marker types");
+  // The return statement uses the default marker type
+  return true;
+}
+```
+
+```bash
+echo "This terminal frame has no title"
+```
+
+```powershell title="PowerShell terminal example"
+Write-Output "This one has a title!"
+```
