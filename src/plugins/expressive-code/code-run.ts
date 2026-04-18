@@ -50,6 +50,8 @@ export function codeRunPlugin() {
         z-index: 1;
         cursor: pointer;
         display: block;
+        width: 2rem;
+        height: 2rem;
         text-decoration: none;
         transition-property: opacity, background, border-color;
         transition-duration: 0.2s;
@@ -108,8 +110,6 @@ export function codeRunPlugin() {
       @media (hover: hover) {
         .expressive-code .copy a.run {
           opacity: 0;
-          width: 2rem;
-          height: 2rem;
         }
 
         .expressive-code .frame:hover .copy a.run:not(:hover),
