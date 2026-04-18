@@ -2,6 +2,7 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import copyIcon from "@tabler/icons/outline/copy.svg?raw";
 import tailwindcss from "@tailwindcss/vite";
 import expressiveCode, {
@@ -18,7 +19,12 @@ import { codeRunPlugin } from "./src/plugins/expressive-code/code-run";
 const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   themes: ["one-dark-pro"],
   frames: false,
-  plugins: [codeOutputPlugin(), pluginFrames(), codeRunPlugin()],
+  plugins: [
+    codeOutputPlugin(),
+    pluginFrames(),
+    pluginLineNumbers(),
+    codeRunPlugin(),
+  ],
   styleOverrides: {
     borderColor: "var(--border)",
     codeFontFamily: "var(--font-google-sans-code)",

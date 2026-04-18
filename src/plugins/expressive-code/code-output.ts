@@ -118,6 +118,10 @@ export function codeOutputPlugin() {
         .ec-output-pre code {
           background-color: transparent !important;
         }
+
+        .ec-output-pre .gutter {
+          display: none;
+        }
       `;
     },
 
