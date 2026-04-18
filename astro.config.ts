@@ -10,10 +10,11 @@ import { defineConfig, fontProviders } from "astro/config";
 
 import { CONFIG } from "./src/config";
 import { codeOutputPlugin } from "./src/plugins/expressive-code/code-output";
+import { codeRunPlugin } from "./src/plugins/expressive-code/code-run";
 
 const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   themes: ["one-dark-pro"],
-  plugins: [codeOutputPlugin()],
+  plugins: [codeOutputPlugin(), codeRunPlugin()],
   styleOverrides: {
     borderColor: "var(--border)",
     codeFontFamily: "var(--font-google-sans-code)",
