@@ -83,10 +83,76 @@ function demo() {
 }
 ```
 
-```bash
-echo "This terminal frame has no title"
+## Output blocks
+
+Simple output from a JavaScript function:
+
+```js title="fibonacci.js"
+function fib(n) {
+  if (n <= 1) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+
+console.log([0, 1, 2, 3, 4, 5, 6, 7].map(fib));
+// [output]
+[0, 1, 1, 2, 3, 5, 8, 13];
 ```
 
-```powershell title="PowerShell terminal example"
-Write-Output "This one has a title!"
+Python with multi-line output:
+
+```python title="hello.py"
+name = "world"
+print(f"Hello, {name}!")
+for i in range(3):
+    print(f"  count: {i}")
+# [output]
+Hello, world!
+  count: 0
+  count: 1
+  count: 2
+```
+
+Diff markers work inside the output section — use `diff lang=` to get both syntax highlighting and diff coloring:
+
+```diff lang="ts" title="refactor.ts"
+  function greet(name: string) {
+-   return "Hello, " + name
++   return `Hello, ${name}!`
+  }
+
+  console.log(greet("world"))
+// [output]
+- Hello, world
++ Hello, world!
+```
+
+Terminal blocks with output:
+
+```bash title="build.sh"
+npm run build
+# [output]
+> my-app@1.0.0 build
+> astro build
+
+ astro  v4.0.0 Building production bundle...
+✓ Completed in 1.23s
+```
+
+```bash
+npm run build
+# [output]
+> my-app@1.0.0 build
+> astro build
+
+ astro  v4.0.0 Building production bundle...
+✓ Completed in 1.23s
+```
+
+```bash ins={"gcc 15.1.0":3-4} del={"clang 15.0.0":5-6}
+echo "$FOO"
+# [output]
+
+1 0 0
+
+0 1 0
 ```

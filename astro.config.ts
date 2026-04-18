@@ -9,9 +9,11 @@ import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
 import { CONFIG } from "./src/config";
+import { codeOutputPlugin } from "./src/plugins/expressive-code/code-output";
 
 const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   themes: ["one-dark-pro"],
+  plugins: [codeOutputPlugin()],
   styleOverrides: {
     borderColor: "var(--border)",
     codeFontFamily: "var(--font-google-sans-code)",
