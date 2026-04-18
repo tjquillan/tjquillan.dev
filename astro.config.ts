@@ -4,7 +4,10 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import copyIcon from "@tabler/icons/outline/copy.svg?raw";
 import tailwindcss from "@tailwindcss/vite";
-import expressiveCode, { createInlineSvgUrl } from "astro-expressive-code";
+import expressiveCode, {
+  createInlineSvgUrl,
+  pluginFrames,
+} from "astro-expressive-code";
 import pagefind from "astro-pagefind";
 import { defineConfig, fontProviders } from "astro/config";
 
@@ -14,7 +17,8 @@ import { codeRunPlugin } from "./src/plugins/expressive-code/code-run";
 
 const expressiveCodeOptions: AstroExpressiveCodeOptions = {
   themes: ["one-dark-pro"],
-  plugins: [codeOutputPlugin(), codeRunPlugin()],
+  frames: false,
+  plugins: [codeOutputPlugin(), pluginFrames(), codeRunPlugin()],
   styleOverrides: {
     borderColor: "var(--border)",
     codeFontFamily: "var(--font-google-sans-code)",

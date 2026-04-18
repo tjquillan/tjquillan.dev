@@ -1,3 +1,4 @@
+import type { ExpressiveCodeBlock } from "@expressive-code/core";
 import type { Element } from "@expressive-code/core/hast";
 
 import { AttachedPluginData, definePlugin } from "@expressive-code/core";
@@ -14,6 +15,7 @@ const OUTPUT_PATTERNS = [
 ];
 
 interface BlockOutputState {
+  sourceCode: string;
   splitAtLine: number;
 }
 
@@ -30,11 +32,11 @@ function isEcLine(node: unknown): node is Element {
   );
 }
 
-function findElement(root: Element, tag: string): Element | null {
+function findElementByTag(root: Element, tag: string): Element | null {
   if (root.tagName === tag) return root;
   for (const child of root.children) {
     if (child.type === "element") {
-      const found = findElement(child, tag);
+      const found = findElementByTag(child, tag);
       if (found) return found;
     }
   }
@@ -50,6 +52,26 @@ function findParentOf(root: Element, target: Element): Element | null {
     }
   }
   return null;
+}
+
+function addClassName(element: Element, className: string) {
+  const existing = (element.properties?.className as string[]) ?? [];
+  if (existing.includes(className)) return;
+
+  element.properties = {
+    ...element.properties,
+    className: [...existing, className],
+  };
+}
+
+function exposeSourceCodeForFollowingPlugins(
+  codeBlock: ExpressiveCodeBlock,
+  sourceCode: string,
+) {
+  Object.defineProperty(codeBlock, "code", {
+    configurable: true,
+    get: () => sourceCode,
+  });
 }
 
 export function codeOutputPlugin() {
@@ -105,7 +127,13 @@ export function codeOutputPlugin() {
         for (let i = 0; i < lines.length; i++) {
           const text = lines[i].text.trim();
           if (OUTPUT_PATTERNS.some((p) => p.test(text))) {
-            blockState.setFor(codeBlock, { splitAtLine: i });
+            blockState.setFor(codeBlock, {
+              sourceCode: lines
+                .slice(0, i)
+                .map((line) => line.text)
+                .join("\n"),
+              splitAtLine: i,
+            });
             codeBlock.deleteLine(i);
             break;
           }
@@ -119,16 +147,16 @@ export function codeOutputPlugin() {
         const { splitAtLine } = state;
         const { blockAst } = renderData;
 
-        const pre = findElement(blockAst, "pre");
+        const pre = findElementByTag(blockAst, "pre");
         if (!pre) return;
 
         const code = pre.children.find(
           (c): c is Element =>
             c.type === "element" && (c as Element).tagName === "code",
-        ) as Element | undefined;
+        );
         if (!code) return;
 
-        // Find the child index in code.children where output lines begin
+        // Find the child index in code.children where output lines begin.
         let linesSeen = 0;
         let splitIdx = code.children.length;
 
@@ -169,17 +197,16 @@ export function codeOutputPlugin() {
 
         const outputWrapper: Element = h("div.ec-output-wrapper", [outputPre]);
 
-        const preParent = findParentOf(blockAst, pre) ?? blockAst;
-        const preIdxInParent = preParent.children.indexOf(pre as never);
-        preParent.children.splice(preIdxInParent + 1, 0, outputWrapper);
-
-        const existing = (blockAst.properties?.className as string[]) ?? [];
-        if (!existing.includes("has-output")) {
-          blockAst.properties = {
-            ...blockAst.properties,
-            className: [...existing, "has-output"],
-          };
+        const preParent = findParentOf(blockAst, pre);
+        if (preParent) {
+          const preIdxInParent = preParent.children.indexOf(pre as never);
+          preParent.children.splice(preIdxInParent + 1, 0, outputWrapper);
+          addClassName(blockAst, "has-output");
+        } else {
+          renderData.blockAst = h("div.has-output", [pre, outputWrapper]);
         }
+
+        exposeSourceCodeForFollowingPlugins(codeBlock, state.sourceCode);
       },
     },
   });
