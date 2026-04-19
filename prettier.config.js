@@ -13,6 +13,7 @@ const config = {
     "@ianvs/prettier-plugin-sort-imports",
   ],
   tailwindStylesheet: "./src/styles/global.css",
+  proseWrap: "always",
   importOrder: [
     "<TYPES>",
     "<TYPES>^(?:@/|@public/|[.])",
