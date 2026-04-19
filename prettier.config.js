@@ -15,12 +15,12 @@ const config = {
   tailwindStylesheet: "./src/styles/global.css",
   importOrder: [
     "<TYPES>",
-    "<TYPES>^[.]",
+    "<TYPES>^(?:@/|@public/|[.])",
     "",
     "<BUILTIN_MODULES>",
     "<THIRD_PARTY_MODULES>",
     "",
-    "^[.]",
+    "^(?:@/|@public/|[.])",
   ],
   importOrderTypeScriptVersion: version,
   overrides: [

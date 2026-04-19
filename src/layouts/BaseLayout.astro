@@ -2,13 +2,13 @@
 import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import { CONFIG } from "../config";
+import Footer from "@/components/Footer.astro";
+import Header from "@/components/Header.astro";
+import { CONFIG } from "@/config";
 
-import "../styles/global.css";
+import "@/styles/global.css";
 
-import { FAVICON_ICO_SIZES_STR } from "../lib/favicon";
+import { FAVICON_ICO_SIZES_STR } from "@/lib/favicon";
 
 type Props = {
   title: string;

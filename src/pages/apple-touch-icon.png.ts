@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-import { generateAppleTouchIcon } from "../lib/favicon";
+import { generateAppleTouchIcon } from "@/lib/favicon";
 
 export const GET: APIRoute = async () => {
   const png = await generateAppleTouchIcon();

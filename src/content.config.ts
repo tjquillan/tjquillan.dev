@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 import { z } from "astro/zod";
 import { kebabCase } from "es-toolkit";
 
-import { CONFIG } from "./config";
+import { CONFIG } from "@/config";
 
 const blog = defineCollection({
   loader: glob({

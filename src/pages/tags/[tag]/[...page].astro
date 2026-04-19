@@ -1,16 +1,16 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
 
-import PostCard from "../../../components/PostCard.astro";
-import { CONFIG } from "../../../config";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "@/components/PostCard.astro";
+import { CONFIG } from "@/config";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import {
   getPostsByTag,
   getPublishedPosts,
   getTagSlug,
   getUniqueTags,
-} from "../../../lib/blog";
-import { getNormalizedPathname } from "../../../lib/url";
+} from "@/lib/blog";
+import { getNormalizedPathname } from "@/lib/url";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getPublishedPosts();

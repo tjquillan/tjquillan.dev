@@ -1,5 +1,5 @@
-import faviconSvg from "../../public/favicon.svg?raw";
-import { svgToPng } from "./svg";
+import { svgToPng } from "@/lib/svg";
+import faviconSvg from "@public/favicon.svg?raw";
 
 // https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs
 const FAVICON_ICO_SIZES = [16, 32, 48];

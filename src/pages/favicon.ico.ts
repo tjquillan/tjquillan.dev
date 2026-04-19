@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-import { generateFaviconIco } from "../lib/favicon";
+import { generateFaviconIco } from "@/lib/favicon";
 
 export const GET: APIRoute = async () => {
   const ico = await generateFaviconIco();

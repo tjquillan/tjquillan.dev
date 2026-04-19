@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { getNormalizedPathname, isActivePathname } from "./url";
+import { getNormalizedPathname, isActivePathname } from "@/lib/url";
 
 function toURL(path: string) {
   return new URL(path, "https://example.com");

@@ -4,9 +4,9 @@ import type { CollectionEntry } from "astro:content";
 
 import { render } from "astro:content";
 
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getPublishedPosts } from "../../lib/blog";
-import { getNormalizedPathname } from "../../lib/url";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getPublishedPosts } from "@/lib/blog";
+import { getNormalizedPathname } from "@/lib/url";
 
 type Props = {
   post: CollectionEntry<"blog">;

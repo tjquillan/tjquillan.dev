@@ -1,7 +1,7 @@
 ---
-import Tag from "../../components/Tag.astro";
-import Layout from "../../layouts/Layout.astro";
-import { getPublishedPosts, getUniqueTags } from "../../lib/blog";
+import Tag from "@/components/Tag.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getPublishedPosts, getUniqueTags } from "@/lib/blog";
 
 const posts = await getPublishedPosts();
 const tags = getUniqueTags(posts);

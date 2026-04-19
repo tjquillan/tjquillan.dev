@@ -1,7 +1,7 @@
 import type { APIRoute, GetStaticPaths, InferGetStaticPropsType } from "astro";
 
-import { getPublishedPosts } from "../../../lib/blog";
-import { generateOgImage } from "../../../lib/og";
+import { getPublishedPosts } from "@/lib/blog";
+import { generateOgImage } from "@/lib/og";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPublishedPosts();

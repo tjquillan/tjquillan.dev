@@ -6,8 +6,8 @@ import { resolve } from "node:path";
 import { fontData as astroFontData } from "astro:assets";
 import satori from "satori";
 
-import { CONFIG } from "../config";
-import { svgToPng } from "./svg";
+import { CONFIG } from "@/config";
+import { svgToPng } from "@/lib/svg";
 
 type OgImageType = "page" | "post";
 
