@@ -26,7 +26,7 @@
     "@resvg/resvg-js": "2.6.2",
     "@tabler/icons": "3.41.1",
     "@tailwindcss/vite": "4.2.4",
-    "astro": "6.1.9",
+    "astro": "6.1.10",
     "astro-expressive-code": "0.41.7",
     "astro-pagefind": "1.8.6",
     "es-toolkit": "1.46.0",
@@ -34,7 +34,7 @@
     "tailwindcss": "4.2.4"
   },
   "devDependencies": {
-    "@astrojs/check": "0.9.8",
+    "@astrojs/check": "0.9.9",
     "@eslint/js": "10.0.1",
     "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@tailwindcss/typography": "0.5.19",
