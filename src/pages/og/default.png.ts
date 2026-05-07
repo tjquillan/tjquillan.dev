@@ -3,8 +3,13 @@ import type { APIRoute } from "astro";
 import { CONFIG } from "@/config";
 import { generateOgImage } from "@/lib/og";
 
-export const GET: APIRoute = async () => {
-  const png = await generateOgImage(CONFIG.title, CONFIG.description);
+export const GET: APIRoute = async (context) => {
+  const png = await generateOgImage(
+    CONFIG.title,
+    CONFIG.description,
+    undefined,
+    context.url,
+  );
 
   return new Response(png.buffer as ArrayBuffer, {
     headers: {

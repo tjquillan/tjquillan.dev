@@ -1,9 +1,10 @@
 /** @jsxRuntime automatic */
 /** @jsxImportSource satori/jsx */
 
-import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
-import { fontData as astroFontData } from "astro:assets";
+import {
+  fontData as astroFontData,
+  experimental_getFontFileURL,
+} from "astro:assets";
 import satori from "satori";
 
 import { CONFIG } from "@/config";
@@ -217,7 +218,7 @@ function PostOgImage({ title, description }: OgImageProps) {
   );
 }
 
-async function loadFontData(): Promise<ArrayBuffer> {
+async function loadFontData(requestUrl?: URL): Promise<ArrayBuffer> {
   const fonts = astroFontData["--font-google-sans-code"];
   // satori does not support WOFF2; "truetype" = TTF in CSS terms
 
@@ -236,17 +237,17 @@ async function loadFontData(): Promise<ArrayBuffer> {
     );
   }
 
-  const fontRelPath = variant.src[0].url.replace(/^\//, "");
-  const fontPath = resolve("dist", fontRelPath);
-  return (await readFile(fontPath)).buffer as ArrayBuffer;
+  const fontUrl = experimental_getFontFileURL(variant.src[0].url, requestUrl);
+  return await fetch(fontUrl).then((response) => response.arrayBuffer());
 }
 
 export async function generateOgImage(
   title: string,
   description?: string,
   type?: OgImageType,
+  requestUrl?: URL,
 ): Promise<Uint8Array> {
-  const fontData = await loadFontData();
+  const fontData = await loadFontData(requestUrl);
 
   const element =
     type === "post" ? (

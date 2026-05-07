@@ -15,7 +15,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 export const GET: APIRoute = async (context) => {
   const { title, description } = context.props as Props;
-  const png = await generateOgImage(title, description, "post");
+  const png = await generateOgImage(title, description, "post", context.url);
 
   return new Response(png.buffer as ArrayBuffer, {
     headers: {
