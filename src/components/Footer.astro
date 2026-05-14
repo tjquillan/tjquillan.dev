@@ -13,6 +13,7 @@ const { noMarginTop = false, class: className, ...attrs } = Astro.props;
 ---
 
 <footer
+  data-pagefind-ignore
   class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
   {...attrs}
 >
