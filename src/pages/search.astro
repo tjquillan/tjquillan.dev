@@ -1,64 +1,182 @@
 ---
-import SearchComponent from "astro-pagefind/components/Search";
+import PagefindConfig from "astro-pagefind/components/PagefindConfig.astro";
 
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="Search" description="Search any article ...">
-  <SearchComponent
-    id="search"
-    className="pagefind-ui"
-    uiOptions={{ showImages: false, showSubResults: true }}
-  />
+  <div id="search">
+    <PagefindConfig />
+    <pagefind-input placeholder="Search"></pagefind-input>
+    <pagefind-summary></pagefind-summary>
+    <pagefind-results show-images="false"></pagefind-results>
+  </div>
 </Layout>
 
 <style is:global>
   #search {
-    --pagefind-ui-font: var(--font-app);
-    --pagefind-ui-text: var(--foreground);
-    --pagefind-ui-background: var(--background);
-    --pagefind-ui-border: var(--border);
-    --pagefind-ui-primary: var(--accent);
-    --pagefind-ui-tag: var(--background);
-    --pagefind-ui-border-radius: 0.375rem;
-    --pagefind-ui-border-width: 1px;
-    --pagefind-ui-image-border-radius: 8px;
-    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pf-font: var(--font-app);
+    --pf-text: var(--foreground);
+    --pf-text-secondary: var(--foreground);
+    --pf-text-muted: color-mix(in srgb, var(--foreground) 36%, transparent);
+    --pf-background: var(--background);
+    --pf-border: var(--border);
+    --pf-border-focus: var(--accent);
+    --pf-skeleton: var(--muted);
+    --pf-skeleton-shine: color-mix(in srgb, var(--muted) 78%, white);
+    --pf-hover: var(--muted);
+    --pf-mark: var(--accent);
+    --pf-scroll-shadow: color-mix(in srgb, var(--accent) 20%, transparent);
+    --pf-shadow-sm: none;
+    --pf-shadow-md: none;
+    --pf-outline-focus: var(--accent);
+    --pf-outline-width: 1px;
+    --pf-outline-offset: 1px;
+    --pf-input-height: 3.2rem;
+    --pf-input-font-size: 1.05rem;
+    --pf-summary-font-size: 0.875rem;
+    --pf-result-title-font-size: 1rem;
+    --pf-result-excerpt-font-size: 0.875rem;
+    --pf-results-gap: 0;
+    --pf-border-radius: 0.375rem;
+  }
 
-    form::before {
-      background-color: var(--foreground);
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input {
+    padding-inline-start: 2.7rem;
+    border: 1px solid var(--border);
+    border-radius: var(--pf-border-radius);
+    font-weight: 400;
+    outline: 0;
+    box-shadow: none;
+  }
 
-    input {
-      font-weight: 400;
-      border: 1px solid var(--border);
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input::placeholder {
+    color: color-mix(in srgb, var(--foreground) 20%, transparent);
+    opacity: 1;
+  }
 
-    input:focus-visible {
-      outline: 1px solid var(--accent);
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input:focus-visible {
+    border: 1px solid var(--border);
+    outline: 1px solid var(--accent);
+    outline-offset: 0;
+    box-shadow: none;
+  }
 
-    .pagefind-ui__result-title a {
-      color: var(--accent);
-      outline-offset: 1px;
-      outline-color: var(--accent);
-      text-decoration-style: dashed;
-      text-underline-offset: 4px;
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-wrapper::before {
+    inset-inline-start: 1rem;
+    background-color: color-mix(in srgb, var(--foreground) 70%, transparent);
+  }
 
-    .pagefind-ui__result-title a:focus-visible,
-    .pagefind-ui__search-clear:focus-visible {
-      text-decoration-line: none;
-      outline-width: 2px;
-      outline-style: dashed;
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-clear {
+    inset-inline-end: 0.15rem;
+    height: calc(100% - 0.3rem);
+    min-width: auto;
+    padding: 0 0.75rem 0 0.1rem;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-app);
+    font-size: 0.7rem;
+    font-weight: 400;
+    border-radius: var(--pf-border-radius);
+  }
 
-    .pagefind-ui__result:last-of-type {
-      border-bottom: 0;
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-clear:hover {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
 
-    .pagefind-ui__result-nested .pagefind-ui__result-link:before {
-      font-family: system-ui;
-    }
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-input-clear:focus-visible {
+    outline: 2px dashed var(--accent);
+    outline-offset: 1px;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-summary {
+    box-sizing: content-box;
+    display: flex;
+    align-items: center;
+    height: 1.2rem;
+    margin-top: 1.05rem;
+    padding: 1rem 0;
+    color: var(--foreground);
+    font-weight: 700;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-results {
+    margin-top: 0;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result {
+    border-top: 1px solid var(--border);
+    padding: 1.875rem 0 2.5rem;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card {
+    gap: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-card:hover {
+    box-shadow: none;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link mark,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-link,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-link mark {
+    color: var(--accent);
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-link {
+    outline-offset: 1px;
+    outline-color: var(--accent);
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link:focus-visible,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-link:focus-visible {
+    text-decoration-line: none;
+    outline-width: 2px;
+    outline-style: dashed;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-link::after {
+    content: none;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-excerpt {
+    margin: 0;
+    white-space: normal;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-result-excerpt mark,
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-excerpt mark {
+    background-color: #ffff00;
+    color: #000000;
+    font-weight: 400;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-chips {
+    margin-top: 0.75rem;
+    padding-inline-start: 1rem;
+  }
+
+  #search :is(*, #\#):is(*, #\#):is(*, #\#) .pf-heading-chip {
+    padding: 0.5rem 0 0.5rem 1rem;
+    background: transparent;
+    border: 0;
+    border-left: 2px solid var(--border);
+    border-radius: 0;
   }
 </style>
