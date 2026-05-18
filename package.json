@@ -19,14 +19,14 @@
     "vite": "^7.3.1"
   },
   "dependencies": {
-    "@astrojs/mdx": "5.0.5",
+    "@astrojs/mdx": "5.0.6",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
     "@expressive-code/plugin-line-numbers": "0.42.0",
     "@resvg/resvg-js": "2.6.2",
     "@tabler/icons": "3.44.0",
     "@tailwindcss/vite": "4.3.0",
-    "astro": "6.3.2",
+    "astro": "6.3.3",
     "astro-expressive-code": "0.42.0",
     "astro-pagefind": "2.0.0",
     "es-toolkit": "1.46.1",
