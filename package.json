@@ -25,13 +25,13 @@
     "@expressive-code/plugin-line-numbers": "0.43.1",
     "@resvg/resvg-js": "2.6.2",
     "@tabler/icons": "3.44.0",
-    "@tailwindcss/vite": "4.3.0",
+    "@tailwindcss/vite": "4.3.1",
     "astro": "6.4.6",
     "astro-expressive-code": "0.43.1",
     "astro-pagefind": "2.0.0",
     "es-toolkit": "1.47.0",
     "satori": "0.26.0",
-    "tailwindcss": "4.3.0"
+    "tailwindcss": "4.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.9",
