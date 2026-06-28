@@ -3,6 +3,10 @@
   "extends": ["config:best-practices", ":pinDependencies"],
   "packageRules": [
     {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    },
+    {
       // Group expressive-code updates
       "matchPackageNames": ["/expressive-code/"],
       "groupName": "expressive-code"
