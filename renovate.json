@@ -1,11 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices", ":pinDependencies"],
+  "extends": ["config:best-practices", ":pinDependencies", ":automergePatch"],
   "packageRules": [
-    {
-      "matchUpdateTypes": ["patch"],
-      "automerge": true
-    },
     {
       // Group expressive-code updates
       "matchPackageNames": ["/expressive-code/"],
