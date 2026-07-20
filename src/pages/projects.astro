@@ -1,8 +1,10 @@
 ---
-import IconGitHub from "@tabler/icons/outline/brand-github.svg";
-import IconPackage from "@tabler/icons/outline/package.svg";
-import IconPlug from "@tabler/icons/outline/plug.svg";
-import IconWorld from "@tabler/icons/outline/world.svg";
+import {
+  IconBrandGithub,
+  IconPackage,
+  IconPlug,
+  IconWorld,
+} from "@tabler/icons-astro";
 
 import LinkButton from "@/components/LinkButton.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -13,7 +15,7 @@ const projects = [
     description: "Solutions for Advent of Code over the years.",
     links: [
       {
-        icon: IconGitHub,
+        icon: IconBrandGithub,
         label: "GitHub",
         url: "https://github.com/tjquillan/adventofcode",
       },
@@ -25,7 +27,7 @@ const projects = [
       "A site for calculating various things related to Discrete Mathematics.",
     links: [
       {
-        icon: IconGitHub,
+        icon: IconBrandGithub,
         label: "GitHub",
         url: "https://github.com/tjquillan/discrete-calculator",
       },
@@ -42,7 +44,7 @@ const projects = [
       "A poetry plugin that aims to make working with Poetry and Pyenv a seamless experience.",
     links: [
       {
-        icon: IconGitHub,
+        icon: IconBrandGithub,
         label: "GitHub",
         url: "https://github.com/tjquillan/poetry-plugin-pyenv",
       },
@@ -58,7 +60,7 @@ const projects = [
     description: "Ulauncher extension to perform various system actions.",
     links: [
       {
-        icon: IconGitHub,
+        icon: IconBrandGithub,
         label: "GitHub",
         url: "https://github.com/tjquillan/ulauncher-system",
       },

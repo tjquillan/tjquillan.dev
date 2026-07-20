@@ -2,8 +2,7 @@
 import type { Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 
-import IconArrowLeft from "@tabler/icons/outline/arrow-narrow-left.svg";
-import IconArrowRight from "@tabler/icons/outline/arrow-narrow-right.svg";
+import { IconArrowNarrowLeft, IconArrowNarrowRight } from "@tabler/icons-astro";
 
 import LinkButton from "@/components/LinkButton.astro";
 
@@ -27,7 +26,7 @@ const { page } = Astro.props;
         class:list={["me-4 select-none", { "opacity-50": !page.url.prev }]}
         aria-label="Goto Previous Page"
       >
-        <IconArrowLeft class="inline-block rtl:rotate-180" />
+        <IconArrowNarrowLeft class="inline-block rtl:rotate-180" />
         Prev
       </LinkButton>
       {page.currentPage} / {page.lastPage}
@@ -38,7 +37,7 @@ const { page } = Astro.props;
         aria-label="Goto Next Page"
       >
         Next
-        <IconArrowRight class="inline-block rtl:rotate-180" />
+        <IconArrowNarrowRight class="inline-block rtl:rotate-180" />
       </LinkButton>
     </nav>
   )
