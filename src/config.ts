@@ -1,15 +1,17 @@
-import type { Props } from "astro";
+import type { AstroComponent } from "@tabler/icons-astro";
 
-import IconGitHub from "@tabler/icons/outline/brand-github.svg";
-import IconGitLab from "@tabler/icons/outline/brand-gitlab.svg";
-import IconLinkedin from "@tabler/icons/outline/brand-linkedin.svg";
-import IconMail from "@tabler/icons/outline/mail.svg";
+import {
+  IconBrandGithub,
+  IconBrandGitlab,
+  IconBrandLinkedin,
+  IconMail,
+} from "@tabler/icons-astro";
 
 interface Social {
   name: string;
   href: string;
   linkTitle: string;
-  icon: (_props: Props) => Element;
+  icon: AstroComponent;
 }
 
 export const CONFIG = {
@@ -25,19 +27,19 @@ export const SOCIALS: Social[] = [
     name: "GitHub",
     href: "https://github.com/tjquillan",
     linkTitle: `${CONFIG.author} on GitHub`,
-    icon: IconGitHub,
+    icon: IconBrandGithub,
   },
   {
     name: "GitLab",
     href: "https://gitlab.com/tjquillan",
     linkTitle: `${CONFIG.author} on GitLab`,
-    icon: IconGitLab,
+    icon: IconBrandGitlab,
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/thomas-quillan/",
     linkTitle: `${CONFIG.author} on LinkedIn`,
-    icon: IconLinkedin,
+    icon: IconBrandLinkedin,
   },
   {
     name: "Mail",
