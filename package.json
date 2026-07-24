@@ -40,7 +40,7 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-astro": "3.0.1",
     "lefthook": "2.1.10",
-    "prettier": "3.9.5",
+    "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.8.1",
     "typescript": "6.0.3",
