@@ -6,6 +6,11 @@
       // Group expressive-code updates
       "matchPackageNames": ["/expressive-code/"],
       "groupName": "expressive-code"
+    },
+    {
+      // Group Tabler Icons updates
+      "matchPackageNames": ["/^@tabler\\/icons/"],
+      "groupName": "tabler-icons"
     }
   ]
 }
