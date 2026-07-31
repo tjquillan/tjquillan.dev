@@ -16,7 +16,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/mdx": "7.0.4",
+    "@astrojs/mdx": "7.0.5",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
     "@expressive-code/plugin-line-numbers": "0.44.1",
@@ -24,7 +24,7 @@
     "@tabler/icons": "3.45.0",
     "@tabler/icons-astro": "3.45.0",
     "@tailwindcss/vite": "4.3.3",
-    "astro": "7.1.4",
+    "astro": "7.1.5",
     "astro-expressive-code": "0.44.1",
     "astro-pagefind": "2.0.1",
     "es-toolkit": "1.50.0",
