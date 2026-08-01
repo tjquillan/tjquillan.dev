@@ -10,8 +10,8 @@
         "@astrojs/sitemap": "3.7.3",
         "@expressive-code/plugin-line-numbers": "0.44.1",
         "@resvg/resvg-js": "2.6.2",
-        "@tabler/icons": "3.45.0",
-        "@tabler/icons-astro": "3.45.0",
+        "@tabler/icons": "3.46.0",
+        "@tabler/icons-astro": "3.46.0",
         "@tailwindcss/vite": "4.3.3",
         "astro": "7.1.5",
         "astro-expressive-code": "0.44.1",
@@ -411,9 +411,9 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@tabler/icons": ["@tabler/icons@3.45.0", "", {}, "sha512-jiATwV8+zGYLTZ7gMLGivCic+KtsMZXcDmufIG8umlLxoHhI6902hGYIEt0Oa9Y9SXblNzUlrisHm5jOFMxOQA=="],
+    "@tabler/icons": ["@tabler/icons@3.46.0", "", {}, "sha512-f2RYFl3fzPwj5WO82x6en0dmkjefxEfOm16D1ByM6cj/McNiwOkL4VaPUoP9VVIrXAD9WnTSVFr70px703b//A=="],
 
-    "@tabler/icons-astro": ["@tabler/icons-astro@3.45.0", "", { "dependencies": { "@tabler/icons": "3.45.0" }, "peerDependencies": { "astro": ">=4.0.0" } }, "sha512-c5GsGfsHpbMyuz9nDNGFBhejIQ8psuxW7GMC8XjZB+K8c+gnXJULzQrE3AxpHojUtlh97g7quEQ0SZdSNPatgw=="],
+    "@tabler/icons-astro": ["@tabler/icons-astro@3.46.0", "", { "dependencies": { "@tabler/icons": "3.46.0" }, "peerDependencies": { "astro": ">=4.0.0" } }, "sha512-hLbPYqiVOAe6SPNRnXyMCmeVJpcqoIiXDqlMjb2deMdhZXZU6FSOtUVUG08T6zBYXqP0CieZZAkvrFgIFHfeCg=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.3.3", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.24.1", "jiti": "^2.7.0", "lightningcss": "1.32.0", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.3.3" } }, "sha512-/T8IKEsf9VTU6tLjgC7+sv2mOPtQxzE2jMw7u4Tt40Tx+QSZxpzh95/H6cMKoja9XuW7iMdLJYBB0o9G1CaAgg=="],
 
