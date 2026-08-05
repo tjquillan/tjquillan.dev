@@ -25,8 +25,8 @@ export function getSortedPosts(
 ): CollectionEntry<"blog">[] {
   return posts.sort(
     (a, b) =>
-      (a.data.updatedDate ?? a.data.pubDate).valueOf() -
-      (b.data.updatedDate ?? b.data.pubDate).valueOf(),
+      (b.data.updatedDate ?? b.data.pubDate).valueOf() -
+      (a.data.updatedDate ?? a.data.pubDate).valueOf(),
   );
 }
 
