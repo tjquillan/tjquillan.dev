@@ -15,6 +15,7 @@ type Props = {
   description?: string;
   author?: string;
   ogImage?: string;
+  ogType?: "article" | "website";
 };
 
 const {
@@ -22,6 +23,7 @@ const {
   description = CONFIG.description,
   author = CONFIG.author,
   ogImage = "/og/default.png",
+  ogType = "website",
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, CONFIG.website);
@@ -37,6 +39,12 @@ const ogImageURL = new URL(ogImage, CONFIG.website).href;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={CONFIG.title}
+      href={new URL("/rss.xml", CONFIG.website)}
+    />
 
     <!-- Load Font -->
     <Font
@@ -53,7 +61,7 @@ const ogImageURL = new URL(ogImage, CONFIG.website).href;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={`${title} | ${CONFIG.title}`} />
     <meta property="og:description" content={description} />
@@ -68,6 +76,8 @@ const ogImageURL = new URL(ogImage, CONFIG.website).href;
     <meta name="twitter:title" content={`${title} | ${CONFIG.title}`} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+
+    <slot name="head" />
 
     <ClientRouter />
   </head>

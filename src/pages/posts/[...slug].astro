@@ -4,7 +4,7 @@ import type { CollectionEntry } from "astro:content";
 
 import { render } from "astro:content";
 
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import PostLayout from "@/layouts/PostLayout.astro";
 import { getPublishedPosts } from "@/lib/blog";
 import { getNormalizedPathname } from "@/lib/url";
 
@@ -22,17 +22,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 const { post } = Astro.props;
 
-const { title, description, author } = post.data;
+const { title, description, author, pubDate, updatedDate } = post.data;
 const ogImage = `/og/posts/${post.id}.png`;
 
 const { Content } = await render(post);
 ---
 
-<BaseLayout
+<PostLayout
   title={title}
   description={description}
   author={author}
   ogImage={ogImage}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
 >
   <main id="main-content" class="app-layout mt-8 pb-12" data-pagefind-body>
     <h1
@@ -45,4 +47,4 @@ const { Content } = await render(post);
       <Content />
     </article>
   </main>
-</BaseLayout>
+</PostLayout>
