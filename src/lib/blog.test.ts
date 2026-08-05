@@ -2,7 +2,7 @@ import type { CollectionEntry } from "astro:content";
 
 import { describe, expect, it } from "vitest";
 
-import { getSortedPosts } from "@/lib/blog";
+import { getSortedPosts, isPublishedPost } from "@/lib/blog";
 
 function post(
   title: string,
@@ -43,5 +43,22 @@ describe("getSortedPosts", () => {
       "Recently updated",
       "Recently published",
     ]);
+  });
+});
+
+describe("isPublishedPost", () => {
+  it("includes published posts", () => {
+    expect(isPublishedPost(post("Published", "2000-01-01").data)).toBe(true);
+  });
+
+  it("excludes draft posts", () => {
+    const draft = post("Draft", "2000-01-01");
+    draft.data.draft = true;
+
+    expect(isPublishedPost(draft.data)).toBe(false);
+  });
+
+  it("excludes posts scheduled for the future", () => {
+    expect(isPublishedPost(post("Scheduled", "2999-01-01").data)).toBe(false);
   });
 });

@@ -10,7 +10,7 @@ export function getPostUrl(post: CollectionEntry<"blog">): string {
 export function isPublishedPost(
   postData: CollectionEntry<"blog">["data"],
 ): boolean {
-  return !postData.draft;
+  return !postData.draft && postData.pubDate.valueOf() <= Date.now();
 }
 
 export async function getPublishedPosts(): Promise<CollectionEntry<"blog">[]> {
