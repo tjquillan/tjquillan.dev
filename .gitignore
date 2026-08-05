@@ -12,6 +12,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# Lighthouse reports
+.lighthouseci/
 
 # environment variables
 .env
