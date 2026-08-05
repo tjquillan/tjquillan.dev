@@ -126,8 +126,43 @@ function isActive(pathname: string) {
     });
   }
 
+  function handleSkipToContent() {
+    const skipLink =
+      document.querySelector<HTMLAnchorElement>("#skip-to-content");
+
+    if (!skipLink) return;
+
+    skipLink.addEventListener("click", (event) => {
+      if (
+        event.defaultPrevented ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.button !== 0
+      ) {
+        return;
+      }
+
+      const mainContent = document.querySelector<HTMLElement>("#main-content");
+
+      if (!mainContent) return;
+
+      event.preventDefault();
+      mainContent.tabIndex = -1;
+      mainContent.addEventListener(
+        "blur",
+        () => mainContent.removeAttribute("tabindex"),
+        { once: true },
+      );
+      mainContent.focus();
+      mainContent.scrollIntoView({ behavior: "smooth" });
+    });
+  }
+
   toggleNav();
+  handleSkipToContent();
 
   // Runs on view transitions navigation
   document.addEventListener("astro:after-swap", toggleNav);
+  document.addEventListener("astro:after-swap", handleSkipToContent);
 </script>

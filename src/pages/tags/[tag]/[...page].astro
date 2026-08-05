@@ -34,7 +34,7 @@ const description = `All the articles with the tag "${tag}".`;
 ---
 
 <BaseLayout title={title} description={description}>
-  <main class="app-layout mt-8 pb-4">
+  <main id="main-content" class="app-layout mt-8 pb-4">
     <h1 class="text-2xl font-semibold sm:text-3xl">
       Tag: <span transition:name={getNormalizedPathname(Astro.url)}>{tag}</span>
     </h1>
