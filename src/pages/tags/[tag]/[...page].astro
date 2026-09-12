@@ -41,7 +41,9 @@ const description = `All the articles with the tag "${tag}".`;
     </h1>
     <p class="mt-2 mb-6 italic">{description}</p>
     <ul>
-      {page.data.map((post) => <PostCard post={post} />)}
+      {page.data.map((post) => (
+        <PostCard post={post} />
+      ))}
     </ul>
   </main>
 </BaseLayout>

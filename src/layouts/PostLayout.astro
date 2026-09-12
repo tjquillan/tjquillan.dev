@@ -41,19 +41,17 @@ const structuredData = {
 <BaseLayout {title} {description} {author} {ogImage} ogType="article">
   <Fragment slot="head">
     <meta property="article:published_time" content={pubDate.toISOString()} />
-    {
-      updatedDate && (
-        <meta
-          property="article:modified_time"
-          content={updatedDate.toISOString()}
-        />
-      )
-    }
+    {updatedDate && (
+      <meta
+        property="article:modified_time"
+        content={updatedDate.toISOString()}
+      />
+    )}
     <script
       type="application/ld+json"
       is:inline
       set:html={JSON.stringify(structuredData)}
-    />
+    ></script>
   </Fragment>
 
   <slot />

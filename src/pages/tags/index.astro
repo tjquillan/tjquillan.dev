@@ -9,6 +9,8 @@ const tags = getUniqueTags(posts);
 
 <Layout title="Tags">
   <ul class="flex flex-wrap gap-6">
-    {tags.map((tag) => <Tag tag={tag} />)}
+    {tags.map((tag) => (
+      <Tag tag={tag} />
+    ))}
   </ul>
 </Layout>
