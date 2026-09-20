@@ -3,6 +3,7 @@ import { version } from "typescript";
 /**
  * @see https://prettier.io/docs/configuration
  * @type {import("prettier").Config
+ *  & import("prettier-plugin-astro").PluginOptions
  *  & import("prettier-plugin-tailwindcss").PluginOptions
  *  & import("@ianvs/prettier-plugin-sort-imports").PluginConfig}
  */
