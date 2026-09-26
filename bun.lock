@@ -10,8 +10,8 @@
         "@astrojs/sitemap": "3.7.4",
         "@expressive-code/plugin-line-numbers": "0.44.2",
         "@resvg/resvg-js": "2.6.2",
-        "@tabler/icons": "3.47.0",
-        "@tabler/icons-astro": "3.47.0",
+        "@tabler/icons": "3.48.0",
+        "@tabler/icons-astro": "3.48.0",
         "@tailwindcss/vite": "4.3.3",
         "astro": "7.3.4",
         "astro-expressive-code": "0.44.2",
@@ -448,9 +448,9 @@
 
     "@shuding/opentype.js": ["@shuding/opentype.js@1.4.0-beta.0", "", { "dependencies": { "fflate": "^0.7.3", "string.prototype.codepointat": "^0.2.1" }, "bin": { "ot": "bin/ot" } }, "sha512-3NgmNyH3l/Hv6EvsWJbsvpcpUba6R8IREQ83nH83cyakCw7uM1arZKNfHwv1Wz6jgqrF/j4x5ELvR6PnK9nTcA=="],
 
-    "@tabler/icons": ["@tabler/icons@3.47.0", "", {}, "sha512-aCbSemVrGvSA3w0sJi8mka6QrnQCN8wCD1jKNXXIR/h6Q4ffov/yFPyzjTULDM8ETtK4DABUZhWdYlygqy3npA=="],
+    "@tabler/icons": ["@tabler/icons@3.48.0", "", {}, "sha512-lQk06gVHNVBnJp0UOgtth54mcZBJM7rdYKsAxKOProj1bbSAx+/xiuOWfHlyvgdL3M+Y+I0HINrjHa3ygp8eXQ=="],
 
-    "@tabler/icons-astro": ["@tabler/icons-astro@3.47.0", "", { "dependencies": { "@tabler/icons": "3.47.0" }, "peerDependencies": { "astro": ">=4.0.0" } }, "sha512-Usxu1GN0eg0YK5ttlpQ9oFpu/c8/n6zTnnsZIka8sGk/r2al67i3iGLEvPHgVcF0pUA25d+2kwfhBHAvIM4pmQ=="],
+    "@tabler/icons-astro": ["@tabler/icons-astro@3.48.0", "", { "dependencies": { "@tabler/icons": "3.48.0" }, "peerDependencies": { "astro": ">=4.0.0" } }, "sha512-AcwblDHAZQvFnWDT1v8HGAbRT3vBhXNSEQZx0dwLy5xV8/wdr00sB0/AIloftpcP4I6RzVDvveTxALu7R8F/fg=="],
 
     "@tailwindcss/node": ["@tailwindcss/node@4.3.3", "", { "dependencies": { "@jridgewell/remapping": "^2.3.5", "enhanced-resolve": "^5.24.1", "jiti": "^2.7.0", "lightningcss": "1.32.0", "magic-string": "^0.30.21", "source-map-js": "^1.2.1", "tailwindcss": "4.3.3" } }, "sha512-/T8IKEsf9VTU6tLjgC7+sv2mOPtQxzE2jMw7u4Tt40Tx+QSZxpzh95/H6cMKoja9XuW7iMdLJYBB0o9G1CaAgg=="],
 
