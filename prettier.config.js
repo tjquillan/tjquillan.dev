@@ -25,6 +25,7 @@ const config = {
     "^(?:@/|@public/|[.])",
   ],
   importOrderTypeScriptVersion: version,
+  astroAllowShorthand: false,
   overrides: [
     {
       files: "*.astro",
