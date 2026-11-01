@@ -1,6 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:best-practices", ":pinDependencies", ":automergePatch"],
+  "customManagers": [
+    {
+      // Track the node-version input of withastro/action like actions/setup-node
+      "customType": "regex",
+      "managerFilePatterns": ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
+      "matchStrings": [
+        "uses:\\s*withastro/action@\\S+(?:\\s*#[^\\n]*)?\\s+with:(?:\\s+[\\w-]+:[^\\n]*\\n)*?\\s+node-version:\\s*[\"']?(?<currentValue>[^\"'\\s]+)"
+      ],
+      "depNameTemplate": "node",
+      "packageNameTemplate": "actions/node-versions",
+      "datasourceTemplate": "github-releases",
+      "versioningTemplate": "node",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+)(-\\d+)?$"
+    }
+  ],
   "packageRules": [
     {
       // Group expressive-code updates
