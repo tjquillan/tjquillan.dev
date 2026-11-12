@@ -25,7 +25,7 @@
     "@tabler/icons": "3.51.0",
     "@tabler/icons-astro": "3.51.0",
     "@tailwindcss/vite": "4.3.5",
-    "astro": "7.4.7",
+    "astro": "7.4.8",
     "astro-expressive-code": "0.44.3",
     "astro-pagefind": "2.0.1",
     "es-toolkit": "1.53.2",
